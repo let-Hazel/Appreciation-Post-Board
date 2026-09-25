@@ -38,8 +38,8 @@ Appreciation-post-Board/
 └── src/
     └── main/
         ├── java/
-        │   └── com/
-        │       school/
+        │   └── co/
+        │       wethinkcode/
         │           shoutout/
         │               ShoutoutPostApp.java
         │               controller/
