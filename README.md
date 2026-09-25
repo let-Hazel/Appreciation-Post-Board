@@ -66,6 +66,14 @@ spring-boot-starter-web (REST APIs & JSON)
 
 spring-boot-starter-activemq & activemq-broker (Embedded JMS Broker)
 
+---
+
+## Future Roadmap & Enhancements
+
+- [ ] **Live Billboard Display (`/board.html`):** Implement Server-Sent Events (SSE) or WebSockets so submitted appreciation posts automatically stream and render on a live presentation page in real time without refreshing.
+- [ ] **Database Persistence:** Add Spring Data JPA & H2/PostgreSQL database integration to permanently store moderation-approved shoutouts.
+- [ ] **Reaction Counters:** Allow students to react (💖, 👏) to posts on the live feed.
+
 Quickstart Guide
 
 1. Clone & Build
@@ -78,5 +86,7 @@ mvn spring-boot:run
 3. Open Web Frontend
 Open your web browser and navigate to:
 http://localhost:8080/
+
+
 
 
