@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appreciation Post Board</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; background: #f4f6f8; }
+    .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    h2 { margin-top: 0; color: #2c3e50; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+    button { margin-top: 15px; width: 100%; padding: 12px; background: #27ae60; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+    button:hover { background: #219150; }
+    .status { margin-top: 15px; padding: 10px; border-radius: 4px; display: none; text-align: center; font-weight: bold; }
+    .success { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Appreciation Post Board</h2>
+    <form id="shoutoutForm">
+      <label for="sender">Your Name:</label>
+      <input type="text" id="sender" placeholder="e.g. Paris" required>
+
+      <label for="recipient">Recipient Name:</label>
+      <input type="text" id="recipient" placeholder="e.g. Nothando" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" placeholder="Write your appreciation message..." required></textarea>
+
+      <button type="submit">Send Shoutout</button>
+    </form>
+
+    <div id="statusBox" class="status"></div>
+  </div>
+
+  <script>
+    document.getElementById('shoutoutForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const statusBox = document.getElementById('statusBox');
+      statusBox.style.display = 'none';
+
+      const payload = {
+        sender: document.getElementById('sender').value,
+        recipient: document.getElementById('recipient').value,
+        message: document.getElementById('message').value
+      };
+
+      try {
+        const response = await fetch('/api/shoutouts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          statusBox.className = 'status success';
+          statusBox.innerText = 'Shoutout sent successfully!';
+          statusBox.style.display = 'block';
+          document.getElementById('shoutoutForm').reset();
+        } else {
+          throw new Error('Server returned ' + response.status);
+        }
+      } catch (err) {
+        statusBox.className = 'status error';
+        statusBox.innerText = 'Failed to send shoutout: ' + err.message;
+        statusBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
