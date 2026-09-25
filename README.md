@@ -1,5 +1,7 @@
 # Appreciation-Post-Board
 
+SI Personal Project verification Code: WTC-8T6DPTGB
+
 > A lightweight, real-time message submission and processing system built with **Spring Boot**, **REST APIs**, **JSON Serialization**, and **Java Messaging Service (JMS)**.
 
 ---
