@@ -32,7 +32,7 @@ Instead of processing requests synchronously—which could lead to slow server r
 ## 📁 Project Structure
 
 ```text
-school-shoutout-board/
+Appreciation-post-Board/
 ├── pom.xml
 ├── README.md
 └── src/
