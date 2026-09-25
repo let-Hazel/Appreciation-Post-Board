@@ -26,6 +26,10 @@ Instead of processing requests synchronously—which could lead to slow server r
 * **JSON Serialization & Deserialization:**
   * Uses **Jackson** to convert incoming HTTP JSON request bodies into `Shoutout` Java objects.
   * Uses `MappingJackson2MessageConverter` to serialize Java objects into JSON text messages across the JMS broker.
+ 
+
+---
+##Video explanation link: https://youtu.be/tSf2LA8fGgo
 
 ---
 
@@ -52,7 +56,9 @@ Appreciation-post-Board/
             └── static/
                 └── index.html  <-- Frontend Form
 
-#Tech Stack & Prerequisites
+---
+
+##  Tech Stack & Prerequisites
 
 Java: 17+
 
@@ -68,13 +74,15 @@ spring-boot-starter-activemq & activemq-broker (Embedded JMS Broker)
 
 ---
 
-## Future Roadmap & Enhancements
+##  Future Roadmap & Enhancements
 
 - [ ] **Live Billboard Display (`/board.html`):** Implement Server-Sent Events (SSE) or WebSockets so submitted appreciation posts automatically stream and render on a live presentation page in real time without refreshing.
 - [ ] **Database Persistence:** Add Spring Data JPA & H2/PostgreSQL database integration to permanently store moderation-approved shoutouts.
 - [ ] **Reaction Counters:** Allow students to react (💖, 👏) to posts on the live feed.
 
-Quickstart Guide
+---
+
+## Quickstart Guide
 
 1. Clone & Build
 # Clean and compile the project
